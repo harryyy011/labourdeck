@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabourDeck</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HOME PAGE -->
+    <main class="container" id="homePage">
+        <div class="logo">LD</div>
+        <h1>LabourDeck</h1>
+        <p class="tagline">
+            The right workers, at the right time.
+        </p>
+
+        <div class="welcome">
+            <h2>Welcome!</h2>
+            <p>How can we help you today?</p>
+        </div>
+
+        <div class="options">
+            <button class="option-btn" id="openWorker">
+                👷 I am a Worker
+            </button>
+
+            <button class="option-btn secondary-btn" id="openEmployer">
+                🧑‍💼 I Need Workers
+            </button>
+        </div>
+
+        <p class="footer-text">
+            Connecting people. Creating opportunities.
+        </p>
+    </main>
+
+    <!-- WORKER PAGE -->
+    <section class="page" id="workerPage">
+        <button class="back-btn" data-back="homePage">
+            ← Back to Home
+        </button>
+
+        <h2>👷 Worker Registration</h2>
+        <p class="subtitle">Register and tell us when you're available.</p>
+
+        <form id="workerForm">
+            <label for="workerName">Full Name</label>
+            <input id="workerName" type="text"
+                   placeholder="Enter your name" required>
+
+            <label for="workerPhone">Mobile Number</label>
+            <input id="workerPhone" type="tel"
+                   inputmode="numeric" pattern="[0-9]{10}"
+                   maxlength="10" placeholder="10-digit mobile number"
+                   required>
+
+            <label for="workerSkill">Work / Skill</label>
+            <select id="workerSkill" required>
+                <option value="">Select your skill</option>
+                <option>Cleaning</option>
+                <option>Painting</option>
+                <option>Construction</option>
+                <option>Farming</option>
+                <option>Shifting</option>
+                <option>Other</option>
+            </select>
+
+            <label for="workerLocation">Location</label>
+            <input id="workerLocation" type="text"
+                   placeholder="e.g. Mandsaur" required>
+
+            <label for="workerCount">Workers Available in Your Group</label>
+            <input id="workerCount" type="number"
+                   min="1" placeholder="e.g. 3" required>
+
+            <label for="workerAvailability">Available Today?</label>
+            <select id="workerAvailability" required>
+                <option value="">Select availability</option>
+                <option value="Yes">Yes, available</option>
+                <option value="No">No, unavailable</option>
+            </select>
+
+            <button class="primary-btn" type="submit">
+                Register / Update Profile
+            </button>
+        </form>
+
+        <div class="dashboard">
+            <h3>📊 My Dashboard</h3>
+
+            <div class="info-card">
+                <span>Availability</span>
+                <strong id="workerStatus">Not registered</strong>
+            </div>
+
+            <div class="info-card">
+                <span>Work Requests</span>
+                <strong id="workerRequestCount">0 requests</strong>
+            </div>
+
+            <button class="primary-btn" id="viewRequests">
+                📩 View My Work Requests
+            </button>
+        </div>
+    </section>
+
+    <!-- EMPLOYER PAGE -->
+    <section class="page" id="employerPage">
+        <button class="back-btn" data-back="homePage">
+            ← Back to Home
+        </button>
+
+        <h2>🧑‍💼 Find Workers</h2>
+        <p class="subtitle">Tell us what work needs to be done.</p>
+
+        <form id="employerForm">
+            <label for="jobType">Type of Work</label>
+            <select id="jobType" required>
+                <option value="">Select work type</option>
+                <option>Cleaning</option>
+                <option>Painting</option>
+                <option>Construction</option>
+                <option>Farming</option>
+                <option>Shifting</option>
+                <option>Other</option>
+            </select>
+
+            <label for="workersRequired">Workers Required</label>
+            <input id="workersRequired" type="number"
+                   min="1" placeholder="e.g. 5" required>
+
+            <label for="jobLocation">Work Location</label>
+            <input id="jobLocation" type="text"
+                   placeholder="e.g. Mandsaur" required>
+
+            <label for="jobDate">Date of Work</label>
+            <input id="jobDate" type="date" required>
+
+            <label for="jobTime">Start Time</label>
+            <input id="jobTime" type="time" required>
+
+            <label for="urgency">Urgency</label>
+            <select id="urgency" required>
+                <option value="">Select urgency</option>
+                <option value="Normal">Normal</option>
+                <option value="Urgent">Urgent - Need today</option>
+            </select>
+
+            <label for="wage">Wage per Worker (₹)</label>
+            <input id="wage" type="number"
+                   min="1" placeholder="e.g. 500" required>
+
+            <button class="primary-btn" type="submit">
+                🔎 Find Matching Workers
+            </button>
+        </form>
+
+        <div id="results"></div>
+    </section>
+
+    <!-- REQUESTS PAGE -->
+    <section class="page" id="requestPage">
+        <button class="back-btn" data-back="workerPage">
+            ← Back to Worker Page
+        </button>
+
+        <h2>📩 My Work Requests</h2>
+        <p class="subtitle">Review requests sent by employers.</p>
+
+        <div id="requestDetails"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
